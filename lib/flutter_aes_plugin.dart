@@ -7,15 +7,15 @@ class FlutterAesPlugin {
   static const MethodChannel _channel =
       const MethodChannel('flutter_aes_zeropadding');
 
-  static Future<dynamic> goNativeWithValue(String methodName,
+  static Future<dynamic> goNativeWithValue(
       [Map<String, dynamic> map]) async {
     if (null == map) {
       //无参数
-      dynamic future = await _channel.invokeMethod(methodName); //methodName方法名
+      dynamic future = await _channel.invokeMethod('aes'); //methodName方法名
       return future;
     } else {
       //带有参数
-      dynamic future = await _channel.invokeMethod(methodName, map);
+      dynamic future = await _channel.invokeMethod('aes', map);
       return future;
     }
   }
